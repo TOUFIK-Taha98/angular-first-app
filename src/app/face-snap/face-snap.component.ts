@@ -1,35 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { FaceSnap } from '../models/face-snap.model';
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
   styleUrls: ['./face-snap.component.scss'],
 })
 export class FaceSnapComponent implements OnInit {
-  title!: string; //! permet d'initialiser la variable pour que TS comprend et evite de tomber dans l'undefined
-  description!: string;
-  createdDate!: Date;
-  snaps!: number;
-  imageUrl!: string;
-  snapped!: boolean;
-
+  @Input() faceSnap!: FaceSnap;
+  
+  //! permet d'initialiser la variable pour que TS comprend et evite de tomber dans l'undefined
   // Ng OnInit sera appelé une fois par instance au moment de sa création
   ngOnInit() {
-    this.title = 'Archibald';
-    this.description = 'Mon meilleur amis depuis tout petit';
-    this.createdDate = new Date();
-    this.snaps = 6;
-    this.imageUrl = "https://static8.depositphotos.com/1372276/930/i/600/depositphotos_9306897-stock-photo-internet-browser-and-url.jpg"
-    this.snapped=false;
+    
   }
   // Function qui se déclenchera sur le click du boutton pour incrémenter les snaps
   onSnap(state: boolean) {
     if(state) {
-      this.snaps--;
-      this.snapped = false;
+      this.faceSnap.snaps--;
+      this.faceSnap.snapped = false;
     }else{
-      this.snaps++;
-      this.snapped = true;
+      this.faceSnap.snaps++;
+      this.faceSnap.snapped = true;
     }
   }
 }
