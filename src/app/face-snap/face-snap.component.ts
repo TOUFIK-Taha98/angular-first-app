@@ -11,6 +11,7 @@ export class FaceSnapComponent implements OnInit {
   createdDate!: Date;
   snaps!: number;
   imageUrl!: string;
+  snapped!: boolean;
 
   // Ng OnInit sera appelé une fois par instance au moment de sa création
   ngOnInit() {
@@ -19,6 +20,17 @@ export class FaceSnapComponent implements OnInit {
     this.createdDate = new Date();
     this.snaps = 6;
     this.imageUrl = "https://static8.depositphotos.com/1372276/930/i/600/depositphotos_9306897-stock-photo-internet-browser-and-url.jpg"
+    this.snapped=false;
+  }
+  // Function qui se déclenchera sur le click du boutton pour incrémenter les snaps
+  onSnap(state: boolean) {
+    if(state) {
+      this.snaps--;
+      this.snapped = false;
+    }else{
+      this.snaps++;
+      this.snapped = true;
+    }
   }
 }
 

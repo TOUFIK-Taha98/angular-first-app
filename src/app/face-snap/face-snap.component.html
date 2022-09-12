@@ -2,6 +2,9 @@
     <h2> {{ title }}</h2>
     <p>Mis en ligne le : {{ createdDate }}</p>
     <p> {{ description }}</p>
-    <p>{{ snaps }} </p>
+    <p>
+        <button (click)="onSnap(snapped)">{{ snapped ? 'Oups UnSnap!' : 'Oh Snaps' }}</button>
+        {{ snaps }} 
+    </p>
     <img [src]="imageUrl" [alt]="title">
 </div>
