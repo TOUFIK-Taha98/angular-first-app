@@ -11,23 +11,31 @@ export class AppComponent {
   autherSnap!: FaceSnap;
   thirdSnap!: FaceSnap;
   ngOnInit() {
-    this.mySnap = new FaceSnap('Archibald',
-      'Mon meilleur amis depuis tout petit',
-      new Date(),
-      6,
-      "https://picsum.photos/200/300",
-      false);
-    this.autherSnap = new FaceSnap('Bobby',
-      'Enfin un ami',
-      new Date(),
-      3,
-      "https://picsum.photos/200/300",
-      false);
-    this.thirdSnap = new FaceSnap('Testing',
-      '3eme component',
-      new Date(),
-      10,
-      "https://picsum.photos/200/300",
-      false);
+    this.mySnap = {
+      title: 'Archibald',
+      description: 'Mon meilleur amis depuis tout petit',
+      createdDate: new Date(),
+      snaps: 0,
+      imageUrl: "https://picsum.photos/200/300",
+      snapped: false,
+      location: 'Paris'
+    };
+    this.autherSnap = {
+      title: 'Testing',
+      description: '2eme component',
+      createdDate: new Date(),
+      snaps: 6,
+      imageUrl: "https://picsum.photos/200/300",
+      snapped: false,
+      location: 'La montagne'
+    };
+    this.thirdSnap = {
+      title: 'Bobby',
+      description: 'Enfin un ami',
+      createdDate: new Date(),
+      snaps: 23,
+      imageUrl: "https://picsum.photos/200/300",
+      snapped: false
+    };
   }
 }
