@@ -18,12 +18,11 @@ export class FaceSnapComponent implements OnInit {
   // Function qui se déclenchera sur le click du boutton pour incrémenter les snaps
   onSnap(state: boolean) {
     if(state) {
-      this.faceSnapService.faceSnapById(this.faceSnap.id);
       this.faceSnap.snapped = false;
     }else{
-      this.faceSnap.snaps++;
       this.faceSnap.snapped = true;
     }
+    this.faceSnapService.snapTheFaceById(this.faceSnap.id,this.faceSnap.snapped);
     
   }
 }
