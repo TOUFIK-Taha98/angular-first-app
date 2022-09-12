@@ -1,5 +1,5 @@
 <div class="face-snap-card snapped" [ngClass]="{snapped: faceSnap.snapped}">
-    <h2> {{ faceSnap.title }}</h2>
+    <h2> {{ faceSnap.title | uppercase }}</h2>
     <p>Mis en ligne le : {{ faceSnap.createdDate }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p> {{ faceSnap.description }}</p>
@@ -9,3 +9,4 @@
         <span [ngStyle]="{ color: 'rgb(0, '+faceSnap.snaps*20+',0)'}">{{ faceSnap.snaps }} </span>
     </p>
 </div>
+
