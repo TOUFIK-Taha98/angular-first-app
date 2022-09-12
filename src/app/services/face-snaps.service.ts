@@ -7,6 +7,7 @@ import { FaceSnap } from '../models/face-snap.model';
 export class FaceSnapsService {
   faceSnaps: FaceSnap[] = [
     {
+      id: 1,
       title: 'Archibald',
       description: 'Mon meilleur amis depuis tout petit',
       createdDate: new Date(),
@@ -17,6 +18,7 @@ export class FaceSnapsService {
       location: 'Paris',
     },
     {
+      id: 2,
       title: 'Testing',
       description: '2eme component',
       createdDate: new Date(),
@@ -27,6 +29,7 @@ export class FaceSnapsService {
       location: 'La montagne',
     },
     {
+      id: 3,
       title: 'Bobby',
       description: 'Enfin un ami',
       createdDate: new Date(),
@@ -35,6 +38,7 @@ export class FaceSnapsService {
       snapped: false,
     },
     {
+      id: 4,
       title: 'Archibald',
       description: 'Mon meilleur amis depuis tout petit',
       createdDate: new Date(),
@@ -45,6 +49,7 @@ export class FaceSnapsService {
       location: 'Paris',
     },
     {
+      id: 5,
       title: 'Testing',
       description: '2eme component',
       createdDate: new Date(),
@@ -55,6 +60,7 @@ export class FaceSnapsService {
       location: 'La montagne',
     },
     {
+      id: 6,
       title: 'Bobby',
       description: 'Enfin un ami',
       createdDate: new Date(),
@@ -66,6 +72,12 @@ export class FaceSnapsService {
 
   getAllfaceSnaps(): FaceSnap[] {
     return this.faceSnaps;
+  }
+
+  faceSnapById(faceSnapId: number) : void {
+    const faceSnap = this.faceSnaps.find((faceSnap) => faceSnap.id === faceSnapId);
+    if(faceSnap) faceSnap.snaps++;
+    else throw new Error('FaceSnap not found');
   }
 }
 

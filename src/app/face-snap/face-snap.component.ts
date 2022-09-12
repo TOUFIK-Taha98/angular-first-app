@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
+import { FaceSnapsService } from '../services/face-snaps.service';
 @Component({
   selector: 'app-face-snap',
   templateUrl: './face-snap.component.html',
@@ -7,7 +8,8 @@ import { FaceSnap } from '../models/face-snap.model';
 })
 export class FaceSnapComponent implements OnInit {
   @Input() faceSnap!: FaceSnap;
-  
+
+  constructor(private faceSnapService: FaceSnapsService){}
   //! permet d'initialiser la variable pour que TS comprend et evite de tomber dans l'undefined
   // Ng OnInit sera appelé une fois par instance au moment de sa création
   ngOnInit() {
@@ -16,7 +18,7 @@ export class FaceSnapComponent implements OnInit {
   // Function qui se déclenchera sur le click du boutton pour incrémenter les snaps
   onSnap(state: boolean) {
     if(state) {
-      this.faceSnap.snaps--;
+      this.faceSnapService.faceSnapById(this.faceSnap.id);
       this.faceSnap.snapped = false;
     }else{
       this.faceSnap.snaps++;

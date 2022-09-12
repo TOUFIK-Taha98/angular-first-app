@@ -15,6 +15,7 @@
 // C'est la même chose que ce qui est en bas.
 
 export class FaceSnap {
+    id!: number;
     title!: string;
     description!: string;
     createdDate!: Date;
