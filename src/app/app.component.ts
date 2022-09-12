@@ -16,7 +16,7 @@ export class AppComponent {
       description: 'Mon meilleur amis depuis tout petit',
       createdDate: new Date(),
       snaps: 0,
-      imageUrl: "https://picsum.photos/200/300",
+      imageUrl: "https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg",
       snapped: false,
       location: 'Paris'
     };
@@ -25,7 +25,7 @@ export class AppComponent {
       description: '2eme component',
       createdDate: new Date(),
       snaps: 6,
-      imageUrl: "https://picsum.photos/200/300",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg",
       snapped: false,
       location: 'La montagne'
     };
@@ -34,7 +34,7 @@ export class AppComponent {
       description: 'Enfin un ami',
       createdDate: new Date(),
       snaps: 23,
-      imageUrl: "https://picsum.photos/200/300",
+      imageUrl: "https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg",
       snapped: false
     };
   }

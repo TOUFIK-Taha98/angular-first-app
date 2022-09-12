@@ -2,6 +2,7 @@
     <h2> {{ faceSnap.title }}</h2>
     <p>Mis en ligne le : {{ faceSnap.createdDate }}</p>
     <p> {{ faceSnap.description }}</p>
+    <p *ngIf="faceSnap.location">Photo prise à {{ faceSnap.location }}</p>
     <p>
         <button (click)="onSnap(faceSnap.snapped)">{{ faceSnap.snapped ? 'Oups UnSnap!' : 'Oh Snaps' }}</button>
         {{ faceSnap.snaps }} 
