@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
+import { FaceSnapsService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap-list',
@@ -9,10 +10,12 @@ import { FaceSnap } from '../models/face-snap.model';
 export class FaceSnapListComponent implements OnInit {
   faceSnaps!: FaceSnap[];
   
-  constructor() { }
+  constructor(private faceSnapsService: FaceSnapsService) { }
 
   ngOnInit(): void {
-    this.faceSnaps = []
+    this.faceSnaps = this.faceSnapsService.faceSnaps;
   }
 
 }
+
+// Dependancy injection is a design pattern that allows us to inject a dependancy into a class
