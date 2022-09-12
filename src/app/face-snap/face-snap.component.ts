@@ -22,6 +22,7 @@ export class FaceSnapComponent implements OnInit {
       this.faceSnap.snaps++;
       this.faceSnap.snapped = true;
     }
+    
   }
 }
 
