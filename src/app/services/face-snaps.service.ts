@@ -63,6 +63,10 @@ export class FaceSnapsService {
       snapped: false,
     },
   ];
+
+  getAllfaceSnaps(): FaceSnap[] {
+    return this.faceSnaps;
+  }
 }
 
 // providedIn: "root" is the same as adding the service to the providers array in the app.module.ts file
