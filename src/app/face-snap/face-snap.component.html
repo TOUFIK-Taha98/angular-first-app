@@ -1,4 +1,7 @@
 <div class="face-snap-card snapped" [ngClass]="{snapped: faceSnap.snapped}">
+    <p>{{ 435345345.3532 | number: '1.0-1' }}</p>
+    <p>{{ 0.4586 | percent: '1.0-2' }}</p>
+    <p>{{ 435345345.32 | number }}</p>
     <h2> {{ faceSnap.title | uppercase }}</h2>
     <p>Mis en ligne le : {{ faceSnap.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
@@ -11,3 +14,12 @@
 </div>
 <!-- 
 dd/MM/yyyy, à HH:mm -->
+
+
+<!-- Pipes pour le formatage des nombres :  -->
+
+<!-- 
+    DecimalPipe => number : '1.0-1' => 1 (chiffre minimum) avant la virgule, 0 (chiffre minumum) après la virgule, 1 (chiffre maximum) après la virgule avec l'arrondi
+    PercentPipe => percent avec l'arrondi par défaut mais on peut le changer avec l'argument
+    CurrencyPipe
+ -->
