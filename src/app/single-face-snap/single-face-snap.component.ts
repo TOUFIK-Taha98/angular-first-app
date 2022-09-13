@@ -1,36 +1,33 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
 @Component({
-  selector: 'app-face-snap',
-  templateUrl: './face-snap.component.html',
-  styleUrls: ['./face-snap.component.scss'],
+  selector: 'app-single-face-snap',
+  templateUrl: './single-face-snap.component.html',
+  styleUrls: ['./single-face-snap.component.scss']
 })
-export class FaceSnapComponent implements OnInit {
-  @Input() faceSnap!: FaceSnap;
+export class SingleFaceSnapComponent implements OnInit {
+  faceSnap!: FaceSnap;
 
-  constructor(
-    private faceSnapService: FaceSnapsService,
-    private router: Router
-  ) {}
-  //! permet d'initialiser la variable pour que TS comprend et evite de tomber dans l'undefined
+  constructor(private faceSnapService: FaceSnapsService,
+    private route: ActivatedRoute){}
+
   // Ng OnInit sera appelé une fois par instance au moment de sa création
-  ngOnInit() {}
+  ngOnInit() {
+    const facesnapId = +this.route.snapshot.params['id'];
+    // + transformer une chaine de caractere en nombre
+    this.faceSnap = this.faceSnapService.getFacesnapById(facesnapId);
+  }
   // Function qui se déclenchera sur le click du boutton pour incrémenter les snaps
   onSnap(state: boolean) {
-    if (state) {
+    if(state) {
       this.faceSnap.snapped = false;
-    } else {
+    }else{
       this.faceSnap.snapped = true;
     }
-    this.faceSnapService.snapTheFaceById(
-      this.faceSnap.id,
-      this.faceSnap.snapped
-    );
-  }
-  onViewFaceSnap(id: number): void {
-    this.router.navigateByUrl(`facesnaps/${id}`);
+    this.faceSnapService.snapTheFaceById(this.faceSnap.id,this.faceSnap.snapped);
+    
   }
 }
 
