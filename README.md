@@ -8,10 +8,6 @@
 
 `ng g c face-snap`
 
-# Generate a new service 
+# Generate a Landing page
 
-`ng g s face-snap`
-
-# Generate a new routing
-
-`ng g m face-snap --routing`
+`ng g c landing-page`
