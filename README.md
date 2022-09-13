@@ -6,3 +6,12 @@
 
 `ng generate component face-snap`
 
+`ng g c face-snap`
+
+# Generate a new service 
+
+`ng g s face-snap`
+
+# Generate a new routing
+
+`ng g m face-snap --routing`
